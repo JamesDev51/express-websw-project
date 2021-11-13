@@ -40,15 +40,16 @@ app.use("/img",express.static(path.join(__dirname,"/img")))
 app.use(cookieParser())
 app.use(express.json()); 
 app.use(express.urlencoded({extended:true}));
+app.use(helmet({contentSecurityPolicy:false}));
 app.use(compression())
 app.use(morgan("dev"))
-app.use(flash())
+// app.use(flash())
 
-app.use(localMiddleware)
+// app.use(localMiddleware)
 
 
-app.use(routes.home,globalRouter)
-app.use(routes.admin,adminRouter)
-app.use(routes.programs,programRouter)
-app.use(routes.api,apiRouter)
+app.use(routes.home, globalRouter)
+app.use(routes.admin, adminRouter)
+app.use(routes.programs, programRouter)
+app.use(routes.api, apiRouter)
 export default app

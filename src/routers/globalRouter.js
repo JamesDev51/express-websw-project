@@ -5,8 +5,8 @@ import routes from "../routes.js"
 const globalRouter = express.Router()
 
 //home
-globalRouter.get(routes.remain,home)
 
+globalRouter.get(routes.remain,home)
 
 
 export default globalRouter
