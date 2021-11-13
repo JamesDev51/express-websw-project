@@ -2,8 +2,10 @@
   "name": "express-websw-project",
   "version": "1.0.0",
   "description": "websw-team-project",
-  "main": "index.js",
+  "main": "init.js",
+  "type": "module",
   "scripts": {
+    "dev:server": "node src/init.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,6 +19,27 @@
   },
   "homepage": "https://github.com/JamesWithCode/express-websw-project#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "axios": "^0.24.0",
+    "compression": "^1.7.4",
+    "connect-mongo": "^4.6.0",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.17.2",
+    "helmet": "^4.6.0",
+    "mongoose": "^6.0.12",
+    "morgan": "^1.10.0",
+    "passport": "^0.5.0",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.4.1"
   }
 }
