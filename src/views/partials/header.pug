@@ -1,2 +1,14 @@
-header.header
-    h1 this is header
+.container
+    nav.nav
+        .nav-links
+            a.web-name(href='#') &#xD30C;&#xC8FC;&#xD559;&#xB2F9;
+            a(href='#') &#xAC15;&#xC0AC;&#xC591;&#xC131;
+            a(href='#') &#xAC15;&#xC0AC;&#xD30C;&#xACAC;
+            a(href='#') &#xC5EC;&#xD589;
+            a(href='#') Contact
+            if !user
+                a(href='#') Login
+            else
+                a(href='#') MyPage
+                
+                
