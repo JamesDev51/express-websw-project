@@ -30,6 +30,7 @@ const routes={
     adminLogout:ADMIN_LOGOUT,
     adminDash:ADMIN_DASH,
     programs:PROGRAMS,
+    programUpload:PROGRAM_UPLOAD,
     programDetail:(id)=>{
         if(id){
             return `/programs/${id}`
@@ -45,7 +46,6 @@ const routes={
         }
     },
 
-    programUpload:PROGRAM_UPLOAD,
     api:API,
     deleteProgram:(id)=>{
         if(id){

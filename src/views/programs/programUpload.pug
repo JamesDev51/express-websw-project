@@ -2,4 +2,24 @@ extends ../layouts/main
 
 block content
     .main
-        h1 this is programUpload
+        // 어떤 프로그램에 대한 게시글인지, 카테고리
+        select.cat(name='category')
+            option(value='') &#xCE74;&#xD14C;&#xACE0;&#xB9AC;
+            option(value='trip') &#xC5EC;&#xD589;&#xD504;&#xB85C;&#xADF8;&#xB7A8;
+            option(value='') &#xCCB4;&#xD5D8;&#xD504;&#xB85C;&#xADF8;&#xB7A8;
+        // 관리자 중 누가 작성하였는지
+        input.writer(type='text' placeholder='작성자')
+        br
+        // 게시글 제목
+        input.title(type='text' placeholder='제목를 입력하세요')
+        // 이미지 파일 첨부(시도중)
+        form(method='post' enctype='multipart/form-data')
+            .button
+                label(for='chooseFile')
+            input#chooseFile(type='file' name='chooseFile' accept='image/*' onchange='loadFile(this)')
+        // 내용 영역
+        textarea.content(rows='20' cols='150')
+        // 제출 완료 버튼, 메인페이지로 이동
+        .wrap
+            button.btn(onclick='programs.html') &#xC644;&#xB8CC;
+

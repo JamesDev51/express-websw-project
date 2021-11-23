@@ -5,7 +5,7 @@ import routes from "../routes.js"
 const programRouter = express.Router()
 
 programRouter.get(routes.remain,programs)
-programRouter.get(routes.programDetail(),programDetail)
 programRouter.get(routes.programUpload,programUpload)
+programRouter.get(routes.programDetail(),programDetail)
 programRouter.get(routes.programReserve(),programReserve)
 export default programRouter
