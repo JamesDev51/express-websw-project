@@ -45,7 +45,7 @@ app.use(compression())
 app.use(morgan("dev"))
 // app.use(flash())
 
-// app.use(localMiddleware)
+app.use(localMiddleware)
 
 
 app.use(routes.home, globalRouter)

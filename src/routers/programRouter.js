@@ -1,11 +1,16 @@
 import express from "express"
-import { programDetail,  programReserve,  programs,  programUpload } from "../controllers/programController.js"
+import { programDetail,  programReserve,  programs,  getProgramUpload,postProgramUpload } from "../controllers/programController.js"
+import { uploadPhotos } from "../middlewares.js"
 import routes from "../routes.js"
 
 const programRouter = express.Router()
 
 programRouter.get(routes.remain,programs)
-programRouter.get(routes.programUpload,programUpload)
+
+programRouter.get(routes.programUpload,getProgramUpload)
+programRouter.post(routes.programUpload,uploadPhotos,postProgramUpload)
+
+
 programRouter.get(routes.programDetail(),programDetail)
 programRouter.get(routes.programReserve(),programReserve)
 export default programRouter

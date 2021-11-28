@@ -13,7 +13,9 @@ const ProgramSchema = new mongoose.Schema({
         type:String,
         default:currentDateKorea
     },
-    photoUrl:String,
+    photoUrls:[{
+        type:String
+    }],
     content:String
 })
 
