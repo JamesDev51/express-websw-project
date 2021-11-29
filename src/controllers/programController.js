@@ -1,5 +1,6 @@
 import routes from "../routes.js"
 import Program from "../models/Program.js"
+import httpStatus from "http-status"
 
 export const programs = async(req,res)=>{
     res.render("programs/programs")
@@ -23,7 +24,7 @@ export const postProgramUpload = async(req,res)=>{
         category,
         photoUrl:paths
     })
-    res.redirect(routes.home)
+    res.redirect("/")
 }
 export const programReserve = async(req,res)=>{
     res.render("programs/programReserve")

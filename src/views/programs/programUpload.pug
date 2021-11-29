@@ -5,6 +5,7 @@ block content
         form.uploadForm(action='/programs/upload', method='post' ,enctype="multipart/form-data")
             // 카테고리
             select.cat(name='category')
+                option(value="") 카테고리
                 option(value='notice') 공지사항
                 option(value='trip') 여행프로그램
                 option(value='activity') 체험프로그램
@@ -16,5 +17,5 @@ block content
             textarea.content(name="content",rows='20', cols='150')
             // 제출 완료 버튼, 메인페이지로 이동
             .wrap
-            button(type="submit").btn 완료
+        button.programUploadBtn 완료
         

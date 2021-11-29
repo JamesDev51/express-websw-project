@@ -1,22 +1,16 @@
- //'파일 선택'클릭하면 도움말 띄우기
-function popUp() {
-    alert("ctrl 또는 shift를 누른 상태로 파일을 여러 개 선택할 수 있습니다.");
-}
+const programUploadBtn= document.querySelector(".programUploadBtn")
+const uploadCategory = document.querySelector('.cat');
+const uploadTitle = document.querySelector('.title');
+const uploadContent = document.querySelector('.content');
+
 //폼 제출 전 유효성 검사
-function validate() {
-    const uploadCategory = document.querySelector('.cat');
-    const uploadWriter = document.querySelector('.writer');
-    const uploadTitle = document.querySelector('.title');
-    const uploadContent = document.querySelector('.content');
+function handleProgramUploadBtnClick() {
+    const form = document.querySelector(".uploadForm")
+    const data = new FormData(form)
     
     if(uploadCategory.value===''){
         alert("카테고리를 선택해주세요");
         uploadCategory.focus();
-        return false;
-    }
-    if(uploadWriter.value===''){
-        alert("작성자를 입력해주세요");
-        uploadWriter.focus();
         return false;
     }
     if(uploadTitle.value===''){
@@ -29,26 +23,20 @@ function validate() {
         uploadContent.focus();
         return false;
     }
-    //검사 후 문제 없으면 폼 제출
-    alert("제출 완료되었습니다");
+
+    fetch("/programs/upload", {
+        method: "POST",
+        headers: {},
+        body: data
+    })
+    .then((response) => {
+        if(response.status===200){
+            alert("프로그램 업로드가 완료되었습니다.")
+            location.href=response.url
+        }
+    })
 };
 
-// fetch("/api/program/edit/${id}", {
-//     method: "POST", 
-//     headers: {
-//         'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify({
-//         //요청본문 이거 맞는지 몰겟
-//         uploadCategory,
-//         uploadWriter,
-//         uploadTitle,
-//         uploadContent
-        
-//     }),
-// })
-//     .then((response) => response.json())
-//     .then((data) => console.log(data));
-
-
-    
+if(programUploadBtn){
+    programUploadBtn.addEventListener("click",handleProgramUploadBtnClick)
+}    
