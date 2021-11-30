@@ -8,3 +8,5 @@ export const editProgram = async(req,res)=>{
 export const reserveProgram = async(req,res)=>{
     console.log("reserveProgram")
 }
+
+//todo : 모든 프로그램명  가져오는 api

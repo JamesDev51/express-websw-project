@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import passportLocalMongoose from "passport-local-mongoose"
 import moment from "moment-timezone"
 
 moment.tz.setDefault("Asia/Seoul");
@@ -16,7 +15,8 @@ const ProgramSchema = new mongoose.Schema({
     photoUrls:[{
         type:String
     }],
-    content:String
+    content:String,
+    date:String
 })
 
 const model = mongoose.model("Program",ProgramSchema)
