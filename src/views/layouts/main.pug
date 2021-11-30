@@ -1,3 +1,5 @@
+include ../mixins/message
+
 doctype html
 html(lang="en")
     head
@@ -9,6 +11,8 @@ html(lang="en")
         title #{pageTitle}
     body 
         .container 
+            if user
+                input(type='hidden', value=user)#myUserData
             include ../partials/header
             main
                 block content 

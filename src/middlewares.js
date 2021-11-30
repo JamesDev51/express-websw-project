@@ -38,7 +38,8 @@ export const localMiddleware = async(req,res,next)=>{
     res.locals.siteName="파주학당"
     res.locals.routes=routes
     if(req.user){
-        res.locals.user=await User.findById(req.user._id).populate('programList') || null
+        const user = await User.findById(req.user._id).populate('programList') || null
+        res.locals.user= user
     }
     next();
 }

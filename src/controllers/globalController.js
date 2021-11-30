@@ -81,6 +81,7 @@ export const postSignup=async(req,res,next)=>{
 }
 
 export const logout = (req,res)=>{
+    req.flash('info',"로그아웃 하였습니다.")
     req.logout()
     res.redirect(routes.home)
 }

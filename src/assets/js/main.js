@@ -1,6 +1,7 @@
 import "../scss/styles.scss"
 
 import "./partials/programUpload.js"
+import "./user.js"
 
 import "./partials/videoHide.js"
 import "./partials/slide.js"

@@ -2,6 +2,7 @@ import express from "express"
 import { programDetail,  programReserve,  programs,  getProgramUpload,postProgramUpload } from "../controllers/programController.js"
 import { uploadPhotos } from "../middlewares.js"
 import routes from "../routes.js"
+import { onlyPublic, onlyPrivate } from "../middlewares.js"
 
 const programRouter = express.Router()
 
