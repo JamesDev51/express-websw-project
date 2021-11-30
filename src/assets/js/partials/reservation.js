@@ -1,5 +1,9 @@
 const contactMenuList = document.querySelector('.contact-menu-list');// 부모태그
+let programInputHidden,programData
 if(contactMenuList){
+
+    
+
     (() => {
         const contactMenuList = document.querySelector('.contact-menu-list');// 부모태그
         const reservation = document.querySelector('.reservation');
@@ -7,6 +11,10 @@ if(contactMenuList){
         const reserveform = document.querySelector('.reserveform');
         const contactName = document.querySelector('.contact-name');
         let loginFlag = false;  // 로그인 유무 플래그
+        programInputHidden = document.getElementById("myLocalDataObj")
+        programData=JSON.parse(programInputHidden.value)
+        console.log(programData)
+        
         const progObj = {
             '0': {
                 'name': '프로그램0'
@@ -31,7 +39,8 @@ if(contactMenuList){
             },
     
         }
-    
+
+
         // 현재 활성화된 아이템을 저장
         let currentItem;	// 공유되는 변수
     

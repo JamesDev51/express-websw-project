@@ -59,6 +59,9 @@ block content
                 .contact-menu.reservation-check 예약 확인
                 .contact-menu.inquiry 문 의
                 .blank
+                    - programsData = programs // data coming in from Express.js
+                    input(type='hidden', value=programsData)#myLocalDataObj
             section.contact
                 .contact-name
                 .reserveform
+    

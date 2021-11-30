@@ -1,8 +1,5 @@
 const video = document.querySelector(".video");
 if(video){
-
-
-
     (() => {
     
         let yOffset = 0; // window.pageYOffset 대신 쓸 변수
@@ -10,7 +7,7 @@ if(video){
         let currentScene = 0; // 현재 활성화된(눈 앞에 보고있는) 씬(scroll-section)
         let enterNewScene = false; // 새로운 scene이 시작된 순간 true
         let container = document.querySelector(`.container`);
-    
+        let hideContainer = document.querySelector(".hide-container")
         const nav = document.querySelector(".nav");
         const video = document.querySelector(".video");
         const noticeContainer = document.querySelector(".notice-container");

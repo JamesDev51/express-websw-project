@@ -3,7 +3,8 @@ import Reserve from "../models/Reserve.js"
 
 export const home = async(req,res)=>{
     try{
-        res.render("home",{pageTitle:"홈"})
+        const programs =  await Program.find({}).sort({_id:-1})
+        res.render("home",{pageTitle:"홈",programs:programs})
     }catch(error){
         console.log(error)
     }
