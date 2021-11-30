@@ -9,13 +9,18 @@ block content
                 option(value='notice') 공지사항
                 option(value='trip') 여행프로그램
                 option(value='activity') 체험프로그램
+            p
+                input.uploadDate(type='date', name="date",value='2021-01-01', min='2021-01-01', max='2050-12-31')
             // 게시글 제목
             input.title(type='text', placeholder='제목를 입력하세요' ,name="title")
             // 파일 여러 개 선택 가능
-            input.chooseFile(type="file", name="photoFile",multiple, accept="image/*")
+            .filebox
+                label(for="chooseFile") 파일선택
+                input(type="file", name="photoFile",multiple, accept="image/*" id="chooseFile")
             // 내용
             textarea.content(name="content",rows='20', cols='150')
             // 제출 완료 버튼, 메인페이지로 이동
-            .wrap
-        button.programUploadBtn 완료
+        .wrap
+            button.programUploadBtn 완료
+        
         

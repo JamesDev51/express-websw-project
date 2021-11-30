@@ -1,0 +1,17 @@
+extends layouts/main
+
+block content
+    .main
+        form(action='/test', method="post")
+            input(type='text' placeholder='프로그램명' name="programTitle" id="programTitle")
+            input(type='text' placeholder='성명을 입력하세요' name="name" id="name")
+            input(type='text' placeholder='이메일을 입력하세요' name="email" id="email")
+            input(type='text' placeholder='연락처를 입력하세요' name="phoneNumber" id="phoneNumber")
+            input(type="number" placeholder="인원수" name="quantity" id="quantity")
+            textarea(cols='30' rows='10' placeholder='남기실 메시지를 입력하세요' , id="message" name="message")
+            button.submit 완 료
+
+        .container
+            span 예약 번호 :  
+            span.reservationNumber
+            

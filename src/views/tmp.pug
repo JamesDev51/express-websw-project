@@ -1,0 +1,30 @@
+extends ../layouts/main
+
+block content
+    .main
+        .uploadForm
+            // 카테고리
+            select.cat(name='category')
+                option(label='카테고리') 
+                option(value='noti') 공지사항
+                option(value='trip') 여행프로그램
+                option(value='expe') 체험프로그램
+            //작성자
+            input.writer(type='text', placeholder='작성자')
+            br
+            // 게시글 제목
+            input.title(type='text', placeholder='제목를 입력하세요')
+            
+            // 파일 여러 개 선택 가능
+            .filebox
+                label(for='chooseFile') 파일선택
+                input#chooseFile(type='file', multiple='')
+
+            // 내용
+            textarea.content(rows='20', cols='150')
+            // 제출 완료 버튼, 메인페이지로 이동
+            .wrap
+                button.uploadBtn 제출
+
+        
+        

@@ -1,0 +1,103 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Document
+  link(href='https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;900&display=swap' rel='stylesheet')
+  script(src='https://kit.fontawesome.com/5d9d40e7fe.js' crossorigin='anonymous')
+  link(rel='stylesheet' href='css/default.css')
+  link(rel='stylesheet' href='css/main.css')
+.container
+    nav.nav
+        .nav-links
+        a.web-name(href='#') &#xD30C;&#xC8FC;&#xD559;&#xB2F9;
+        a(href='#') &#xAC15;&#xC0AC;&#xC591;&#xC131;
+        a(href='#') &#xAC15;&#xC0AC;&#xD30C;&#xACAC;
+        a(href='#') &#xC5EC;&#xD589;
+        a(href='#') Contact
+    .video
+        section.iframebox
+        iframe(src='https://www.youtube.com/embed/NtG9eS3qZ24' frameborder='0' allowfullscreen='')
+    .hide-container
+    section.notice-container
+        .notice-name -notice-
+        .notice-viewport
+        .notice-list
+        .btnContainer
+        button.pre
+            i.fa.fa-chevron-left(aria-hidden='true')
+        button.next
+            i.fa.fa-chevron-right(aria-hidden='true')
+        button.more
+            i.fa.fa-plus(aria-hidden='true')
+    .scroll-container
+        section#scroll-section-0.scroll-section
+        .sticky-elem.sticky-elem-img
+            #img-0
+        .sticky-elem.main-message.a
+          // 이 박스의 높이를 설정해주고 안의 p를 센터 정렬하면 p가 몇줄이든 가운데 정렬해주면 된다.
+            p &#xAC15;&#xC0AC; &#xC591;&#xC131;
+        .sticky-elem.main-message.b
+            p
+            | &#xB178;&#xC778; &#xBC0F; &#xACBD;&#xB825; &#xB2E8;&#xC808; &#xC5EC;&#xC131;&#xB4E4;&#xC774; &#xBAA8;&#xC5EC; 
+            br
+            | &#xC5ED;&#xC0AC;&middot;&#xBB38;&#xD654;&middot;&#xC608;&#xC220; &#xBD84;&#xC57C;&#xC758; 
+            br
+            | &#xC804;&#xBB38;&#xAC15;&#xC0AC;&#xAC00; &#xB420; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+      section#scroll-section-1.scroll-section
+        .sticky-elem.sticky-elem-img
+          #img-1
+        .sticky-elem.main-message.a
+          // 이 박스의 높이를 설정해주고 안의 p를 센터 정렬하면 p가 몇줄이든 가운데 정렬해주면 된다.
+          p &#xAC15;&#xC0AC; &#xD30C;&#xACAC;
+        .sticky-elem.main-message.b
+          p
+            | &#xD30C;&#xC8FC; &#xAD00;&#xB0B4; &#xD559;&#xAD50; &#xBC0F; &#xC77C;&#xBC18; &#xB2E8;&#xCCB4;&#xC5D0; 
+            br
+            | &#xC5ED;&#xC0AC; &#xAC15;&#xC0AC;, &#xC804;&#xD1B5; &#xBB38;&#xD654; &#xAC15;&#xC0AC;&#xB97C;
+            br
+            | &#xD30C;&#xACAC;&#xD558;&#xACE0; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+      section#scroll-section-2.scroll-section
+        .sticky-elem.sticky-elem-img
+          #img-2
+        .sticky-elem.main-message.a
+          // 이 박스의 높이를 설정해주고 안의 p를 센터 정렬하면 p가 몇줄이든 가운데 정렬해주면 된다.
+          p &#xC5EC;&#xD589;
+        .sticky-elem.main-message.b
+          p
+            | DMZ &#xD3C9;&#xD654; &#xD1B5;&#xC77C; &#xC5EC;&#xD589;, 
+            br
+            | &#xACBD;&#xAE30;&#xB3C4; &#xBB38;&#xD654;&#xC720;&#xC0B0; &#xC5EC;&#xD589;&#xC744; 
+            br
+            | &#xC2A4;&#xD1A0;&#xB9AC;&#xD154;&#xB9C1;&#xD558;&#xACE0; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+    .contact-menu-list
+      .contact-menu.reservation &#xC608; &#xC57D;
+      .contact-menu.reservation-check &#xC608;&#xC57D; &#xD655;&#xC778;
+      .contact-menu.inquiry &#xBB38; &#xC758;
+      .blank
+    section.contact
+      .contact-name
+      .reserveform
+        .select
+          .text &#xC9C4;&#xD589; &#xC911;&#xC778; &#xD504;&#xB85C;&#xADF8;&#xB7A8;
+          ul.option-list
+            li.option &#xD504;&#xB85C;&#xADF8;&#xB7A8;1
+            li.option &#xD504;&#xB85C;&#xADF8;&#xB7A8;2
+            li.option &#xD504;&#xB85C;&#xADF8;&#xB7A8;3
+        .input-div
+          .input-name &#xC774;&#xB984;
+          input(type='text' placeholder='성명을 입력하세요')
+        .input-div
+          .input-name &#xC5F0;&#xB77D;&#xCC98;
+          input(type='text' placeholder='이메일을 입력하세요')
+        .input-div
+          .input-name &#xC774;&#xBA54;&#xC77C;
+          input(type='text' placeholder='연락처를 입력하세요')
+        .input-div
+          .input-name &#xC778;&#xC6D0;
+          input(type='number' placeholder='인원 수를 입력하세요')
+        .textarea-div
+          .input-name &#xBB38;&#xC758;&#xC0AC;&#xD56D;
+          textarea(name='' id='' cols='30' rows='10' placeholder='남기실 메시지를 입력하세요')
+        button.submit &#xC644; &#xB8CC;
