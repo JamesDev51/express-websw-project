@@ -3,6 +3,7 @@ const uploadCategory = document.querySelector('.cat');
 const uploadTitle = document.querySelector('.title');
 const uploadContent = document.querySelector('.content');
 
+
 //폼 제출 전 유효성 검사
 function handleProgramUploadBtnClick() {
     const form = document.querySelector(".uploadForm")
@@ -39,4 +40,21 @@ function handleProgramUploadBtnClick() {
 
 if(programUploadBtn){
     programUploadBtn.addEventListener("click",handleProgramUploadBtnClick)
+    document.querySelector(".uploadDate").valueAsDate=new Date()
+
+    //'파일 선택'클릭하면 도움말 띄우기
+    document.getElementById("chooseFile").onclick = function() {
+        alert("ctrl 또는 shift를 누른 상태로 파일을 여러 개 선택할 수 있습니다.");
+    }
+
+    //파일 개수 제한
+    document.querySelector("#chooseFile").onchange = function() {
+        var fileInput = document.querySelector("#chooseFile");
+        var files = fileInput.files;
+        var fl = files.length;
+        if ( fl > 5 ) {
+            alert("파일은 최대 5개까지 선택할 수 있습니다");
+            fileInput.value=""
+        }
+    }
 }    

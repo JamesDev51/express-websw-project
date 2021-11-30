@@ -1,13 +1,19 @@
-html {
-    /*폰트 통일*/
-    font-family: 'Noto Sans KR', sans-serif;
-}
-
 // body {
 //     background-image: url('img/login_background_image.png');
 // }
 
+.uploadForm {
+    margin-top: 100px;
+}
+
 .cat {
+    margin: 10px;
+    padding: 7px;
+    width: 15%;
+}
+
+.uploadDate {
+    font-size: 18px;
     margin: 10px;
     padding: 7px;
 }
@@ -17,14 +23,28 @@ html {
 }
 
 .title {
-    color: GrayText;
+    color: gray;
     font-size: 18px;
     outline: none;
     border: none;
-    border-bottom: 2px solid gray;
-    width: 30%;
+    width: 37%;
     margin: 10px;
     padding: 10px;
+}
+
+.filebox input[type="file"] {
+    display: none;
+}
+
+.filebox label { 
+    width: 13%;
+    margin: 10px;
+    display: inline-block;
+    padding: 6px 25px;
+    background-color:skyblue;
+    border-radius: 4px;
+    color: black;
+    cursor: pointer;
 }
 
 .content {
@@ -41,7 +61,7 @@ html {
     justify-content: center;
 }
 
-.btn {
+.programUploadBtn {
     width: 100px;
     height: 35px;
     font-size: 15px;
@@ -55,11 +75,12 @@ html {
     transition: all 0.3s ease 0s;
     cursor: pointer;
     outline: none;
+    
 }
 
-.btn:hover {
+.programUploadBtn:hover {
     background-color: black;
     box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
     color: white;
     transform: translateY(-5px);
-    }
+}
