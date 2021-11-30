@@ -3,14 +3,15 @@ extends ./layouts/main
 block content
     .main
         // 로그인 데이터가 도착할 url 입력
-        form.loginForm(action='', method='post') 
+        form.loginForm(action='/login', method='post') 
             h1 로그인
             .idForm
-                input.id(type='text', placeholder='아이디')
+                input.id(type='text', placeholder='아이디', name="username")
             .pwForm
-                input.pw(type='password', placeholder='패스워드')
+                input.pw(type='password', placeholder='패스워드' name="password")
             // 로그인 버튼 누르면 메인화면 이동
-            button.btn(type='button', onclick='') LOG IN
+            button.btn(type='submit') LOGIN
             // 회원가입페이지 이동
             .bottomText
-                | 아이디가 없으신가요? a(href='signup.html') 회원가입하기
+                | 아이디가 없으신가요?    
+                a(href='/signup') 회원가입하기

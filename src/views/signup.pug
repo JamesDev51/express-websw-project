@@ -3,17 +3,17 @@ extends ./layouts/main
 block content
     .main
         // 회원가입 폼
-        form.signupForm(action='', method='post')
+        form.signupForm(action='/signup', method='post')
             h1 회원가입
             .idForm
-                input.id(type='text', placeholder='id를 입력하세요')
+                input.id(type='text', placeholder='id를 입력하세요', name="username")
             .pwForm
-                input.pw(type='text', placeholder='pw를 입력하세요')
+                input.pw(type='password', placeholder='pw를 입력하세요' name="password")
             .nameForm
-                input.name(type='text', placeholder='이름을 입력하세요')
+                input.name(type='text', placeholder='이름을 입력하세요' name="realname")
             .phoneNumForm
-                input.pn(type='text', placeholder='전화번호를 입력하세요(숫자로만)')
+                input.pn(type='text', placeholder='전화번호를 입력하세요(숫자로만)' name="phoneNumber")
             .emailForm
-                input.email(type='email', placeholder='이메일을 입력하세요')
+                input.email(type='email', placeholder='이메일을 입력하세요' name="email")
             // 회원가입하기 누르면 메인페이지로
-            button.btn_signIn(type='button', onclick='') SIGN UP
+            button.btn_signIn(type='submit', onclick='') SIGN UP

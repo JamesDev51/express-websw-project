@@ -5,11 +5,13 @@ nav.nav
         a(href='#') 강사파견
         a(href='#') 여행
         a(href='#') Contact
-        //- if !user
-        //-     a(href='#') Login
-        //- else
+        a(href='/programs/upload') 프로그램 등록하기
+        if !user
+            a(href='/login') Login
+        else
+            a(href='/logout') Logout
+            
         //- a(href='#') MyPage
         //- if user.admin
-        a(href='/programs/upload') 프로그램 등록하기
             
             

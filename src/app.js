@@ -11,6 +11,7 @@ import mongoose from "mongoose" //db
 import session  from "express-session"
 import MongoStore from "connect-mongo"
 import passport from "passport"
+import "./passport.js"
 import flash from "express-flash"
 import { localMiddleware } from "./middlewares.js"
 
@@ -28,6 +29,7 @@ import apiRouter from "./routers/apiRouter.js"
 
 
 const app = express()
+const CookieStore = new MongoStore(session)
 
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -43,7 +45,15 @@ app.use(express.urlencoded({extended:true}));
 app.use(helmet({contentSecurityPolicy:false}));
 app.use(compression())
 app.use(morgan("dev"))
-// app.use(flash())
+app.use(session({
+    secret:process.env.COOKIE_SECRET,
+    resave:false,
+    saveUninitialized:false,
+    store: new CookieStore({mongooseConnection:mongoose.connection})
+}))
+app.use(flash())
+app.use(passport.initialize())
+app.use(passport.session())
 
 app.use(localMiddleware)
 
