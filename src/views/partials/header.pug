@@ -1,5 +1,6 @@
 nav.nav
     .nav-links
+        
         a.web-name(href='/') 파주학당
         a(href='#') 강사양성
         a(href='#') 강사파견
@@ -8,9 +9,9 @@ nav.nav
         a(href='/programs/upload') 프로그램 등록하기
         if !user
             a(href='/login') Login
+            a(href='/signup') Signup
         else
             a(href='/logout') Logout
-            
         //- a(href='#') MyPage
         //- if user.admin
             

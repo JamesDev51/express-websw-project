@@ -16,7 +16,13 @@ const ProgramSchema = new mongoose.Schema({
         type:String
     }],
     content:String,
-    date:String
+    date:String,
+    reserveList:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"Reserve"
+        }
+    ]
 })
 
 const model = mongoose.model("Program",ProgramSchema)

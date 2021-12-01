@@ -1,9 +1,6 @@
 const contactMenuList = document.querySelector('.contact-menu-list');// 부모태그
 let programInputHidden,programData
 if(contactMenuList){
-
-    
-
     (() => {
         const contactMenuList = document.querySelector('.contact-menu-list');// 부모태그
         const reservation = document.querySelector('.reservation');
@@ -11,9 +8,12 @@ if(contactMenuList){
         const reserveform = document.querySelector('.reserveform');
         const contactName = document.querySelector('.contact-name');
         let loginFlag = false;  // 로그인 유무 플래그
-        programInputHidden = document.getElementById("myLocalDataObj")
+
+        ////////프로그램 정보 받아오는 곳
+        programInputHidden = document.getElementById("programData")
         programData=JSON.parse(programInputHidden.value)
         console.log(programData)
+        ///////////////////////////
         
         const progObj = {
             '0': {

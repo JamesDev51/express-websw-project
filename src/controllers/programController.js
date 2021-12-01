@@ -1,6 +1,6 @@
 import routes from "../routes.js"
 import Program from "../models/Program.js"
-import httpStatus from "http-status"
+import httpStatusCode from "http-status-codes"
 
 export const programs = async(req,res)=>{
     res.render("programs/programs")

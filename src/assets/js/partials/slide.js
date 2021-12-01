@@ -1,62 +1,63 @@
-let proObj = {
-
-    '0': {
-        img: "img/lightning.jpg",
-        name: "프로그래밍?파이썬으로 시작!",
-        text: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae consectetur inventore doloremque deserunt eligendi, quae veritatis laborum nam ipsam. Ducimus sit numquam molestiae doloremque nihil fuga rem et culpa aliquam?`
-    },
-    '1': {
-        img: "img/lightning.jpg",
-        name: "프로그래밍?파이썬으로 시작!",
-        text: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae consectetur inventore doloremque deserunt eligendi, quae veritatis laborum nam ipsam. Ducimus sit numquam molestiae doloremque nihil fuga rem et culpa aliquam?`
-    },
-    '2': {
-        img: "img/lightning.jpg",
-        name: "프로그래밍?파이썬으로 시작!",
-        text: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae consectetur inventore doloremque deserunt eligendi, quae veritatis laborum nam ipsam. Ducimus sit numquam molestiae doloremque nihil fuga rem et culpa aliquam?`
-    },
-    '3': {
-        img: "img/lightning.jpg",
-        name: "프로그래밍?파이썬으로 시작!",
-        text: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae consectetur inventore doloremque deserunt eligendi, quae veritatis laborum nam ipsam. Ducimus sit numquam molestiae doloremque nihil fuga rem et culpa aliquam?`
-    },
-    '4': {
-        img: "img/lightning.jpg",
-        name: "프로그래밍?파이썬으로 시작!",
-        text: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae consectetur inventore doloremque deserunt eligendi, quae veritatis laborum nam ipsam. Ducimus sit numquam molestiae doloremque nihil fuga rem et culpa aliquam?`
-    },
-    '5': {
-        img: "img/lightning.jpg",
-        name: "프로그래밍?파이썬으로 시작!",
-        text: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae consectetur inventore doloremque deserunt eligendi, quae veritatis laborum nam ipsam. Ducimus sit numquam molestiae doloremque nihil fuga rem et culpa aliquam?`
-    },
-    '6': {
-        img: "img/lightning.jpg",
-        name: "프로그래밍?파이썬으로 시작!",
-        text: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae consectetur inventore doloremque deserunt eligendi, quae veritatis laborum nam ipsam. Ducimus sit numquam molestiae doloremque nihil fuga rem et culpa aliquam?`
-    },
-
-
-}
-
-let curPos = 0;
-let postion = 0;
-let start_x, end_x;
-
 const noticeList = document.querySelector(".notice-list");   // 리스트        
-const viewport = document.querySelector(".notice-viewport"); // 뷰포트
-let noticeArr;
-let noticeCount;
-let viewportWidth;
-let VIEWPORT_WIDTH;
-
-
-const preBtn = document.querySelector(".btnContainer .pre");
-const nextBtn = document.querySelector(".btnContainer .next");
-const moreBtn = document.querySelector(".btnContainer .more");
-
-console.log(noticeCount);
 if(noticeList){
+    let proObj = {
+    
+        '0': {
+            img: "img/lightning.jpg",
+            name: "프로그래밍?파이썬으로 시작!",
+            text: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae consectetur inventore doloremque deserunt eligendi, quae veritatis laborum nam ipsam. Ducimus sit numquam molestiae doloremque nihil fuga rem et culpa aliquam?`
+        },
+        '1': {
+            img: "img/lightning.jpg",
+            name: "프로그래밍?파이썬으로 시작!",
+            text: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae consectetur inventore doloremque deserunt eligendi, quae veritatis laborum nam ipsam. Ducimus sit numquam molestiae doloremque nihil fuga rem et culpa aliquam?`
+        },
+        '2': {
+            img: "img/lightning.jpg",
+            name: "프로그래밍?파이썬으로 시작!",
+            text: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae consectetur inventore doloremque deserunt eligendi, quae veritatis laborum nam ipsam. Ducimus sit numquam molestiae doloremque nihil fuga rem et culpa aliquam?`
+        },
+        '3': {
+            img: "img/lightning.jpg",
+            name: "프로그래밍?파이썬으로 시작!",
+            text: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae consectetur inventore doloremque deserunt eligendi, quae veritatis laborum nam ipsam. Ducimus sit numquam molestiae doloremque nihil fuga rem et culpa aliquam?`
+        },
+        '4': {
+            img: "img/lightning.jpg",
+            name: "프로그래밍?파이썬으로 시작!",
+            text: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae consectetur inventore doloremque deserunt eligendi, quae veritatis laborum nam ipsam. Ducimus sit numquam molestiae doloremque nihil fuga rem et culpa aliquam?`
+        },
+        '5': {
+            img: "img/lightning.jpg",
+            name: "프로그래밍?파이썬으로 시작!",
+            text: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae consectetur inventore doloremque deserunt eligendi, quae veritatis laborum nam ipsam. Ducimus sit numquam molestiae doloremque nihil fuga rem et culpa aliquam?`
+        },
+        '6': {
+            img: "img/lightning.jpg",
+            name: "프로그래밍?파이썬으로 시작!",
+            text: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae consectetur inventore doloremque deserunt eligendi, quae veritatis laborum nam ipsam. Ducimus sit numquam molestiae doloremque nihil fuga rem et culpa aliquam?`
+        },
+    
+    
+    }
+    
+    let curPos = 0;
+    let postion = 0;
+    let start_x, end_x;
+    
+
+    const viewport = document.querySelector(".notice-viewport"); // 뷰포트
+    let noticeArr;
+    let noticeCount;
+    let viewportWidth;
+    let VIEWPORT_WIDTH;
+    
+    
+    const preBtn = document.querySelector(".btnContainer .pre");
+    const nextBtn = document.querySelector(".btnContainer .next");
+    const moreBtn = document.querySelector(".btnContainer .more");
+    
+    console.log(noticeCount);
     function createProgram(obj) {
         for (let key in obj) {
             const notice = document.createElement('div');
@@ -124,9 +125,9 @@ if(noticeList){
         console.log(postion);
         noticeList.style.left = postion + "px"; // 앞에 마지막 거가 추가됐으니 처음에는 한칸 땡겨야지
     
-        left = getStyle(noticeList, "left", "left");   // 뷰포트 넓이
-        left_WIDTH = parseInt(left);   // 뷰포트 넓이
-        console.log(left_WIDTH);
+        // left = getStyle(noticeList, "left", "left");   // 뷰포트 넓이
+        // left_WIDTH = parseInt(left);   // 뷰포트 넓이
+        // console.log(left_WIDTH);
     }
     
     // 이전으로
