@@ -71,16 +71,18 @@ const createReservationNumber = async(email,phoneNumber)=>{
 export const checkReservation = async(req,res)=>{
     try{
         const {body:{reservationCode,userId}}=req
-        let reservationData
+        let reservation
+        let reservationData=[]
         if(userId===null){
             //비회원 로직
-            reservationData = await Reserve.findOne({reservationCode})
+            reservation = await Reserve.findOne({reservationCode}).populate('program')
+            reservationData.push(reservation)
             res.send({reservationData,status:httpStatusCode.OK})
         }else{
             const user = await User.findById(userId)
-            const reservationData=[]
             for(let i=0;i<user.programList.length;i++){
-                let reservation = await Reserve.findById(user.reserveList[i]).populate('program')
+                reservation = await Reserve.findById(user.reserveList[i]).populate('program')
+                
                 reservationData.push(reservation)
             }
             res.send({reservationData,status:httpStatusCode.OK})
