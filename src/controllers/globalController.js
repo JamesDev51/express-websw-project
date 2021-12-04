@@ -21,10 +21,9 @@ export const getLogin = async(req,res)=>{
     }
 }
 
-export const postLogin = passport.authenticate('local',{
-    successRedirect:routes.home,
-    failureRedirect:routes.login
-})
+export const postLogin =passport.authenticate('local',{
+        successRedirect:routes.home,
+        failureRedirect:routes.login})
 
 export const getSignup = async(req,res)=>{
     try{
@@ -36,6 +35,8 @@ export const getSignup = async(req,res)=>{
 export const postSignup=async(req,res,next)=>{
     const {body:{username,password,realname,phoneNumber,email}}=req
     try{
+        
+        console.log(username,password,realname,phoneNumber,email)
         const user = await User({
             username,
             realname,

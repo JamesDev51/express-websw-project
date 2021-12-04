@@ -1,45 +1,51 @@
 .signupForm {
-    position: absolute;
+    //margin-top: 8%;
+    position: relative;
     width: 400px;
     height: 550px;
-    padding: 30px, 20px;
-    background-color: white;
+    padding: 30px, 30px;
+    background-color: #2a344a;
     text-align: center;
-    top: 50%;
+    top: 340px;
     left: 50%;
     transform: translate(-50%,-50%);
     border-radius: 15px;
 }
 .signupForm h1 {
+    font-size: 1.7em;
+    color: white;
+    font-weight: bold;
     text-align: center;
     margin: 20px;
 }
-.idForm, .pwForm, .pwForm2, .nameForm, .phoneNumForm, .emailForm{
-    border-bottom: 2px solid gray;
+.signupIdForm, .signupPwForm, .signupNameForm, .signupPhoneNumForm, .signupEmailForm{
+    border-bottom: 2px solid white;
     margin: 30px;
     padding: 10px 10px;
 }
-.id, .pw,.pw2 ,.name, .pn, .email {
+.signupId, .signupPw, .signupName, .signupPn, .signupEmail {
     width: 100%;
     border: none;
     outline: none;
-    color: gray;
+    color: white;
     font-size: 16px;
     height: 25px;
     background: none;
 }
-.btn_signIn {
+.signupBtn {
+    //margin-top: 38%;
     position: relative;
-    left: 25%;
+    left: 50%;
+    top: 0;
     transform: translateX(-50%);
-    margin-bottom: 40px;
-    width: 50%;
-    height: 40px;
-    background: linear-gradient(125deg,#81ecec,#6c5ce7,#81ecec);
+    width: 200px;
+    height: 7vh;
+    background: white;
     background-position: left;
     background-size: 200%;
-    color: white;
+    color: #2a344a;
     font-weight: bold;
     border: none;
     cursor: pointer;
+    border-radius: 15px;
 }

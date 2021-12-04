@@ -7,7 +7,9 @@ const uploadContent = document.querySelector('.content');
 //폼 제출 전 유효성 검사
 function handleProgramUploadBtnClick() {
     const form = document.querySelector(".uploadForm")
+    console.log("form : ",form)
     const data = new FormData(form)
+    console.log("data : ",data)
     
     if(uploadCategory.value===''){
         alert("카테고리를 선택해주세요");

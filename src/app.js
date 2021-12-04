@@ -40,8 +40,8 @@ app.set("views",path.join(__dirname,"/views"))
 app.use("/static",express.static(__dirname+"/static"))
 app.use("/img",express.static(path.join(__dirname,"/img")))
 app.use(cookieParser())
-app.use(express.json()); 
 app.use(express.urlencoded({extended:true}));
+app.use(express.json()); 
 app.use(helmet({contentSecurityPolicy:false}));
 app.use(compression())
 app.use(morgan("dev"))
