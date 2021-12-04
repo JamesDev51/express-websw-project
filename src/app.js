@@ -11,9 +11,9 @@ import mongoose from "mongoose" //db
 import session  from "express-session"
 import MongoStore from "connect-mongo"
 import passport from "passport"
-import "./passport.js"
+import "./passport"
 import flash from "express-flash"
-import { localMiddleware } from "./middlewares.js"
+import { localMiddleware } from "./middlewares"
 
 
 //dotenv
@@ -21,18 +21,18 @@ import dotenv from "dotenv"
 dotenv.config()
 
 //routers
-import routes from "./routes.js"
-import globalRouter from "./routers/globalRouter.js"
-import adminRouter from "./routers/adminRouter.js"
-import programRouter from "./routers/programRouter.js"
-import apiRouter from "./routers/apiRouter.js"
+import routes from "./routes"
+import globalRouter from "./routers/globalRouter"
+import adminRouter from "./routers/adminRouter"
+import programRouter from "./routers/programRouter"
+import apiRouter from "./routers/apiRouter"
 
 
 const app = express()
 const CookieStore = new MongoStore(session)
 
-const __filename = url.fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// const __filename = url.fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
 
 
 app.set("view engine","pug")

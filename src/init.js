@@ -1,6 +1,7 @@
-import app from "./app.js"
+import "@babel/polyfill"
+import app from "./app"
 import dotenv from "dotenv"
-import "./db.js"
+import "./db"
 dotenv.config()
 
 const PORT =process.env.PORT || 8000

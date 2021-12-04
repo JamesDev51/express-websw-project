@@ -1,7 +1,7 @@
 import express from "express"
-import { askQuestion, checkReservation, deleteProgram, editProgram, reserveProgram } from "../controllers/apiController.js"
-import routes from "../routes.js"
-import { onlyPublic, onlyPrivate } from "../middlewares.js"
+import { askQuestion, checkReservation, deleteProgram, editProgram, reserveProgram } from "../controllers/apiController"
+import routes from "../routes"
+import { onlyPublic, onlyPrivate } from "../middlewares"
 
 const apiRouter = express.Router()
 apiRouter.get(routes.deleteProgram(),deleteProgram) //프로그램 삭제

@@ -1,8 +1,8 @@
-import Program from "../models/Program.js"
-import Reserve from "../models/Reserve.js"
-import User from "../models/User.js"
+import Program from "../models/Program"
+import Reserve from "../models/Reserve"
+import User from "../models/User"
 import passport from "passport"
-import routes from "../routes.js"
+import routes from "../routes"
 
 export const home = async(req,res)=>{
     try{

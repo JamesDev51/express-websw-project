@@ -1,5 +1,5 @@
-import routes from "../routes.js"
-import Program from "../models/Program.js"
+import routes from "../routes"
+import Program from "../models/Program"
 import httpStatusCode from "http-status-codes"
 
 export const programs = async(req,res)=>{

@@ -1,8 +1,8 @@
-import Program from "../models/Program.js"
-import Reserve from "../models/Reserve.js"
-import Question from "../models/Question.js"
+import Program from "../models/Program"
+import Reserve from "../models/Reserve"
+import Question from "../models/Question"
 import httpStatusCode from "http-status-codes"
-import User from "../models/User.js"
+import User from "../models/User"
 
 export const deleteProgram = async(req,res)=>{
     console.log("deleteProgram")

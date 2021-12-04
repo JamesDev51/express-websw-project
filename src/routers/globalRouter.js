@@ -1,7 +1,7 @@
 import express from "express"
-import { getLogin, getSignup, home, logout, postLogin, postSignup } from "../controllers/globalController.js"
-import routes from "../routes.js"
-import { onlyPublic, onlyPrivate } from "../middlewares.js"
+import { getLogin, getSignup, home, logout, postLogin, postSignup } from "../controllers/globalController"
+import routes from "../routes"
+import { onlyPublic, onlyPrivate } from "../middlewares"
 
 const globalRouter = express.Router()
 

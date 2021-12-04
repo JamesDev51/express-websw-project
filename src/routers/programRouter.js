@@ -1,8 +1,8 @@
 import express from "express"
-import { programDetail,  programs,  getProgramUpload,postProgramUpload } from "../controllers/programController.js"
-import { uploadPhotos } from "../middlewares.js"
-import routes from "../routes.js"
-import { onlyPublic, onlyPrivate } from "../middlewares.js"
+import { programDetail,  programs,  getProgramUpload,postProgramUpload } from "../controllers/programController"
+import { uploadPhotos } from "../middlewares"
+import routes from "../routes"
+import { onlyPublic, onlyPrivate } from "../middlewares"
 
 const programRouter = express.Router()
 

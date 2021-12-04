@@ -1,8 +1,8 @@
 import express from "express"
-import { adminDash } from "../controllers/adminController.js"
-// import { adminLogin } from "../controllers/adminController.js"
-import routes from "../routes.js"
-import { onlyPublic, onlyPrivate } from "../middlewares.js"
+import { adminDash } from "../controllers/adminController"
+// import { adminLogin } from "../controllers/adminController"
+import routes from "../routes"
+import { onlyPublic, onlyPrivate } from "../middlewares"
 
 const adminRouter = express.Router()
 adminRouter.get(routes.adminDash,adminDash)
