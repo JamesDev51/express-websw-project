@@ -19,4 +19,5 @@ globalRouter.post(routes.signup,onlyPublic,postSignup,postLogin)
 
 globalRouter.get(routes.logout,logout)
 
+
 export default globalRouter

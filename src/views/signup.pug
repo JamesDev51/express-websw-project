@@ -3,7 +3,7 @@ extends ./layouts/main
 block content
     .main
         // 회원가입 폼
-        form.signupForm#signupForm(action='/signup', method='post')
+        form.signupForm#signupForm(action='/signup', method='post',enctype="multipart/form-data")
             br
             h1 회원가입
             .signupIdForm

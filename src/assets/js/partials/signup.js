@@ -63,7 +63,22 @@ function handleSignUpBtnClick(){ //회원가입 버튼 눌렀을 때
     if(!regexCheck(regEmail,signupEmail,"적합하지 않는 이메일 형식입니다.")){
         return false;
     }
-    signUpform.submit()
+    let data = Object.fromEntries(new FormData(signUpform))
+    fetch("/signup", {
+    method :"POST",
+    headers: {"Content-Type": "application/json; charset=utf-8"},
+    dataType:"json",
+    body: JSON.stringify(data)
+    }).then((response) => {
+        console.log(response) 
+        location.href=response.url
+
+    })  
+
+
+
+    // signUpform.submit()
+
 }
 
 //회원 가입버튼을 눌렀을 때 실행
