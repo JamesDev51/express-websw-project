@@ -31,18 +31,19 @@ function handleLoginBtnClick(){ //로그인 버튼 눌렀을 때
         loginPw.focus();
         return false;
     }
-    loginForm.submit()
-    alert("로그인 되었습니다.")
-// headers: {"Content-Type": "application/json; charset=utf-8"},
-    // fetch("/login", {
-    // method :"POST",
-    // body: data
-    // }).then((response) => {
-    //     if(response.status===200){
-    //         alert("로그인되었습니다")
-    //         location.href="/"
-    //     }
-    // })  
+    // loginForm.submit()
+    // alert("로그인 되었습니다.")
+    let data = Object.fromEntries(new FormData( loginForm))
+    fetch("/login", {
+    method :"POST",
+    headers: {"Content-Type": "application/json; charset=utf-8"},
+    dataType:"json",
+    body: JSON.stringify(data)
+    }).then((response) => {
+        console.log(response) 
+        location.href=response.url
+
+    })  
 }
 
 //회원 가입버튼을 눌렀을 때 실행

@@ -38,7 +38,7 @@ const UserSchema = new mongoose.Schema({
     ]
 })
 
-UserSchema.plugin(passportLocalMongoose,{usernameField:"username"})
+UserSchema.plugin(passportLocalMongoose,{usernameField:"username",usernameUnique:true})
 
 const model = mongoose.model("User",UserSchema)
 

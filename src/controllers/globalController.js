@@ -25,6 +25,9 @@ export const postLogin =passport.authenticate('local',{
         successRedirect:routes.home,
         failureRedirect:routes.login})
 
+
+
+        
 export const getSignup = async(req,res)=>{
     try{
         res.render("signup",{pageTitle:"회원가입"})
@@ -35,8 +38,7 @@ export const getSignup = async(req,res)=>{
 export const postSignup=async(req,res,next)=>{
     const {body:{username,password,realname,phoneNumber,email}}=req
     try{
-        
-        console.log(username,password,realname,phoneNumber,email)
+        console.log(username,password)
         const user = await User({
             username,
             realname,
@@ -45,7 +47,9 @@ export const postSignup=async(req,res,next)=>{
             phoneNumber
         })
         await User.register(user,password)
-        res.render("home",{pageTitle:"홈"})
+        next()
+        // res.render("home",{pageTitle:"홈"})
+
     }catch(error){
         console.log(error)
         res.redirect(routes.home)

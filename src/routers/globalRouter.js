@@ -15,7 +15,7 @@ globalRouter.post(routes.login,onlyPublic,postLogin)
 
 
 globalRouter.get(routes.signup,onlyPublic,getSignup)
-globalRouter.post(routes.signup,onlyPublic,postSignup)
+globalRouter.post(routes.signup,onlyPublic,postSignup,postLogin)
 
 globalRouter.get(routes.logout,logout)
 

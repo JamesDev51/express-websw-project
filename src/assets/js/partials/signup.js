@@ -4,6 +4,7 @@ const signupId= document.querySelector(".signupId");
 const signupPw=document.querySelector(".signupPw");
 const signupName= document.querySelector(".signupName");
 const signupPn = document.querySelector(".signupPn");
+const signUpform = document.getElementById("signupForm")
 const signupEmail=document.querySelector(".signupEmail");
 
 //정규식
@@ -62,21 +63,7 @@ function handleSignUpBtnClick(){ //회원가입 버튼 눌렀을 때
     if(!regexCheck(regEmail,signupEmail,"적합하지 않는 이메일 형식입니다.")){
         return false;
     }
-
-    const form = document.getElementById("signupForm")
-    form.submit()
-    alert("회원가입 되었습니다.")
-    // const data = new FormData(form)
-    // fetch("/signup", {
-    //     method :"POST",
-    //     headers:{},
-    //     body: data
-    // }).then((response) => {
-    //     if(response.status===200){
-    //         alert("회원가입되었습니다")
-    //         location.href=response.url
-    //     }
-    // })  
+    signUpform.submit()
 }
 
 //회원 가입버튼을 눌렀을 때 실행
