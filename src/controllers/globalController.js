@@ -48,7 +48,6 @@ export const postSignup=async(req,res,next)=>{
         })
         await User.register(user,password)
         next()
-        // res.render("home",{pageTitle:"홈"})
 
     }catch(error){
         console.log(error)
