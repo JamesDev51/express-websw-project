@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "websw-team-project",
   "main": "init.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
-    "dev:server": "nodemon --exec node src/init.js --delay 2 --ignore 'scss' ",
+    "dev:server": "nodemon --exec babel-node src/init.js --delay 2 --ignore 'scss' ",
     "dev:assets": "cd src && cross-env NODE_ENV=development && webpack -w",
     "build:assets": "cd src && cross-env NODE_ENV=production && webpack",
-    "build:server": "babel src --out-dir build --ignore src/static --ignore src/assets --ignore src/webpack.config.js",
+    "build:server": "src --out-dir build --ignore src/static --ignore src/assets --ignore src/webpack.config.js",
     "copyAll": "cp -R src/static build && cp -R src/views build",
     "tunnel": "lt --port 4000",
     "build": "npm run build:server && npm run build:assets && npm run copyAll ",
@@ -26,7 +26,6 @@
     "url": "https://github.com/JamesWithCode/express-websw-project/issues"
   },
   "homepage": "https://github.com/JamesWithCode/express-websw-project#readme",
-  
   "dependencies": {
     "@babel/cli": "^7.16.0",
     "@babel/core": "^7.16.0",
