@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "websw-team-project",
   "main": "init.js",
+  "type":"module",
   "scripts": {
     "dev:server": "nodemon --exec node src/init.js --delay 2 --ignore 'scss' ",
     "dev:assets": "cd src && cross-env NODE_ENV=development && webpack -w",
@@ -25,6 +26,7 @@
     "url": "https://github.com/JamesWithCode/express-websw-project/issues"
   },
   "homepage": "https://github.com/JamesWithCode/express-websw-project#readme",
+  
   "dependencies": {
     "@babel/cli": "^7.16.0",
     "@babel/core": "^7.16.0",
