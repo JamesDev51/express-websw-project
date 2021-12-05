@@ -1,6 +1,7 @@
 const contactMenu = document.querySelector('.contact-menu-list');// 부모태그
 if(contactMenu){
     const reservation = document.querySelector('.reservation');
+    const reservationChecker = document.querySelector('.reservation-check');
     const reserveform = document.querySelector('.reserveform');
     const contactName = document.querySelector('.contact-name');
     let loginFlag;  // 로그인 유무 플래그
@@ -93,6 +94,8 @@ if(contactMenu){
     }
     
     contactMenu.addEventListener('click', menuHandler);
+    activate(reservationChecker);
+    inactivate(reservationChecker);
     activate(reservation);
     
     
