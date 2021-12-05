@@ -19,7 +19,6 @@ export const getProgramUpload = async(req,res)=>{
 export const postProgramUpload = async(req,res)=>{
     const {body:{category,title,content,date},files}=req;
     let paths=[]
-    console.log("files : ",files)
     for(let i in files){
         paths.push(files[i].location)
     }
@@ -30,6 +29,7 @@ export const postProgramUpload = async(req,res)=>{
         photoUrls:paths,
         date
     })
+    
     res.redirect("/")
 }
 export const programReserve = async(req,res)=>{

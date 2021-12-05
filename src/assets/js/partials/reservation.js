@@ -101,11 +101,12 @@ if(contactMenu){
     
     // 드롭다운 함수
     function onClickSelect(e) { // 눌렀을 때 활성화되있으면 비활성화 활성화 안되있으면 활성화
-        const isActive = e.currentTarget.className.indexOf("active") !== -1;
+        const isActive = e.currentTarget.classList.contains("active");
+        console.log("isActive : ",isActive)
         if (isActive) {
-            e.currentTarget.className = "select";
+            e.currentTarget.classList.remove('active');
         } else {
-            e.currentTarget.className = "select active";
+            e.currentTarget.classList.add('active');
         }
     }
     

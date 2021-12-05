@@ -6,7 +6,7 @@ if(programDetail){
     const programContainer = document.createElement('div');
     
     
-    const body = document.querySelector('body');
+    const body = document.querySelector('.main');
     programContainer.classList.add('programContainer');
     body.appendChild(programContainer);
     
