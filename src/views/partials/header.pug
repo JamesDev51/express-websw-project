@@ -1,15 +1,12 @@
 nav.nav
     .nav-links
-        
-        a.web-name(href='/') 파주학당
-        a(href='#') 강사양성
-        a(href='#') 강사파견
-        a(href='#') 여행
-        a(href='#') Contact
-        a(href='/programs/upload') 프로그램 등록하기
+        a(href="/").web-name 파주학당
+        a.nav-menu Programs
+        a.nav-menu About
+        a.nav-menu Contact
         if !user
-            a(href='/login') Login
-            a(href='/signup') Signup
+            a.nav-menu(href='/login') Login
+            a.nav-menu(href='/signup') Signup
         else
             a(href='/logout') Logout
         //- a(href='#') MyPage

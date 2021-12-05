@@ -2,4 +2,8 @@ extends ../layouts/main
 
 block content
     .main
-        h1 this is adminDash
+        .adminContainer
+            h1 관리자페이지
+            button.adminBtn(onclick="userFetch()") 조회
+            h2 회원목록
+            ul.adminMember

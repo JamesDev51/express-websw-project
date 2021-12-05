@@ -1,0 +1,7 @@
+extends ../layouts/main
+
+block content
+    .main
+        .programData
+            - programsData = programs // data coming in from Express.js
+            input(type='hidden', value=programsData)#programData

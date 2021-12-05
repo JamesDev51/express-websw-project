@@ -4,7 +4,7 @@
   "description": "websw-team-project",
   "main": "init.js",
   "scripts": {
-    "dev:server": "nodemon --exec babel-node src/init.js --delay 2 --ignore 'scss' ",
+    "dev:server": "nodemon --exec babel-node src/init.js --delay 3 --ignore 'scss' ",
     "dev:assets": "cd src && cross-env NODE_ENV=development && webpack -w",
     "build:assets": "cd src && cross-env NODE_ENV=production && webpack",
     "build:server": "babel src --out-dir build --ignore src/static --ignore src/assets --ignore src/webpack.config.js",

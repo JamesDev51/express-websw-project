@@ -2,4 +2,7 @@ extends ../layouts/main
 
 block content
     .main
-        h1 this is programDetail
+        #programDetail
+            - programData = program // data coming in from Express.js
+            input(type='hidden', value=programData)#programDataDetail
+        h1 #{program}
