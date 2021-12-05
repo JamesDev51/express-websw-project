@@ -50,7 +50,7 @@ if(contactMenu){
             else {  // 로그인했으면 예약 정보 바로 나옴.
                 // 여기에서 회원 예약확인 api 적용
                 
-                fetch("", {
+                fetch("/api/reservation/check", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -277,7 +277,7 @@ if(contactMenu){
                 if (regCheck(false)) {
                     // 프로그램 예약 api 비회원일 때 
                     
-                    fetch("", {
+                    fetch("/api/program/reserve", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
@@ -319,7 +319,7 @@ if(contactMenu){
                 if (regCheck(true)) {
                     // 프로그램 예약 api 로그인되어 있을 때 
                     
-                    fetch("", {
+                    fetch("/api/program/reserve", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
@@ -452,7 +452,7 @@ if(contactMenu){
                 if (regCheck(false)) {
                     // 문의 api 비회원일 때 
                     
-                    fetch("", {
+                    fetch("/api/program/question", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
@@ -499,7 +499,7 @@ if(contactMenu){
                 if (regCheck(true)) {
                     // 문의 api 로그인되어 있을 때 
                     
-                    fetch("", {
+                    fetch("/api/program/question", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
@@ -576,7 +576,7 @@ if(contactMenu){
             else {
                 // 예약 확인 api 비회원일 때
                 
-                fetch("", {
+                fetch("/api/reservation/check", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
