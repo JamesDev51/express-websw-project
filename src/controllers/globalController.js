@@ -39,12 +39,18 @@ export const postSignup=async(req,res,next)=>{
     const {body:{username,password,realname,phoneNumber,email}}=req
     try{
         console.log(username,password)
+        const admin="admin_pajuhakdang_"
+        let isAdmin=false
+        if(username.startsWith(admin)){
+            isAdmin=true
+        }
         const user = await User({
             username,
             realname,
             email,
             password,
-            phoneNumber
+            phoneNumber,
+            isAdmin
         })
         await User.register(user,password)
         next()

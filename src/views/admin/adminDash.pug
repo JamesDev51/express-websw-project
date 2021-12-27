@@ -2,8 +2,15 @@ extends ../layouts/main
 
 block content
     .main
-        .adminContainer
-            h1 관리자페이지
-            button.adminBtn(onclick="userFetch()") 조회
-            h2 회원목록
-            ul.adminMember
+        .blank
+            - questionsData = questions // data coming in from Express.js
+            input(type='hidden', value=questionsData)#questionsData
+            - programsData = programs // data coming in from Express.js
+            input(type='hidden', value=programsData)#programsData
+            - reservationsData = reservations // data coming in from Express.js
+            input(type='hidden', value=reservationsData)#reservationsData
+        //- .adminContainer
+        //-     h1 관리자페이지
+        //-     button.adminBtn(onclick="userFetch()") 조회
+        //-     h2 회원목록
+        //-     ul.adminMember

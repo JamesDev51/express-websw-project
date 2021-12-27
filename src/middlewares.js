@@ -59,3 +59,13 @@ export const onlyPrivate = (req,res,next)=>{
         res.redirect(routes.home)
     }
 }
+export const onlyAdmin=(req,res,next)=>{
+    if(!req.user){
+        res.redirect(routes.home)
+    }
+    else if(req.user.isAdmin){
+        next()
+    }else{
+        res.redirect(routes.home)
+    }
+}

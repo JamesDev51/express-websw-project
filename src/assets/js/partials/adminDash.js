@@ -1,65 +1,28 @@
-const ul = document.querySelector('.adminMember'); //리스트로 받아오기
-
-function createNode(element){
-    return document.createElement(element);
-}
-
-function append(parent, el){
-    return parent.appendChild(el);
-}
-
-function userFetch(){
-    fetch('/api/program/reserve')
-        .then((resp) => resp.json()) //데이터->json
-        .then(function(data){
-            //받아올 데이터
-            let members = data.reservationData;
-            //console.log(members);
-            return members.map(function(member){
-                let li = createNode('li'),
-                name = createNode('h2'),
-                span = createNode('span');
-
-                name.innerHTML = `${member.name}`;
-                span.innerHTML = `이메일:${member.email} <br>전화번호: ${member.phoneNumber} <br> 인원:${member.peopleNum} <br> 남기신 메세지:${member.message} <br> 프로그램명:${member.program} <br> 예약번호:${member.reservationCode} <br> 아이디:${member._id} <br> ${member.__v}`;
-
-                append(li, name)
-                append(li, span);
-                append(ul, li);
-            })
-
-        })
-        .catch(err => console.log(err));
-}
-
-
-/*function getUserInfo() {
+const reservationsInputHidden = document.getElementById("reservationsData")
+if(reservationsInputHidden){
+    const reservationData=JSON.parse(reservationsInputHidden.value)
+    console.log("reservationData : ",reservationData)
+    
+    const body = document.querySelector('.main'); //전체 바디
+    const reservationListContainer = document.createElement('div'); //예약정보 전체 묶는 컨테이너
+    reservationListContainer.classList.add('reservationListContainer'); //컨테이너의css
+    
+    function createReservationList(obj) { //객체 받아오기
         
-    const config = {
-        method: "get"
-    };
-
-    fetch("/api/program/reserve", config)
-        .then(response => response.json())
-        .then(data => {
-            const reservationData = document.createElement("div");
-            const user = document.createElement("div");
-            reservationData.textContent = data.reservationData;
-            user.textContent = data.user;
-            const userInfo = document.getElementById("userInfo");
-            userInfo.appendChild(reservationData);
-            userInfo.appendChild(user);
-         
-        })
-        .catch(error => console.log(error));
-}
-
-function viewInfo() {
-    const adminBtn= document.querySelector(".adminBtn");
-    if(adminBtn){
-        adminBtn.addEventListener("click", getUserInfo)
+        for (key in obj) { //객체에서 키값 꺼내기
+            console.log("key : ", key)
+            const reservation = document.createElement('div'); //예약정보 하나 묶는 컨테이너
+            reservation.classList.add('reservation'); //해당 css
+            
+            const reservationInfo = document.createElement('div');
+            reservationInfo.classList.add('reservationInfo');
+            reservationInfo.innerHTML = "성함: "+obj[key].name+"<br/>"+ "프로그램명: " + obj[key].program + "<br/>" + "이메일: " + obj[key].email + "<br/>" + "아이디: " + obj[key]._id + "<br/>" +  "전화번호: " + obj[key].phoneNumber + "<br/>" + "인원수: " + obj[key].peopleNum + "<br/>"+ "문의사항: " + obj[key].message;
+           
+            reservation.appendChild(reservationInfo);
+            reservationListContainer.appendChild(reservation);
+            
+        }
     }
+    createReservationList(reservationData);
+    body.appendChild(reservationListContainer);
 }
-
-viewInfo()
-*/
