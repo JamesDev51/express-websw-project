@@ -18,7 +18,6 @@ if(contactMenu){
     const userDataInput = document.getElementById("myUserData")
     if(userDataInput){
         userData=JSON.parse(userDataInput.value)
-        console.log(userData)
         loginFlag = true;  // 로그인 유무 플래그
     }
     else {
@@ -29,7 +28,6 @@ if(contactMenu){
     
     const programInputHidden = document.getElementById("programData")
     const programData=JSON.parse(programInputHidden.value)
-    console.log("programData",programData)
     
     // 현재 활성화된 아이템을 저장
     let currentItem;	// 공유되는 변수
@@ -66,9 +64,9 @@ if(contactMenu){
                         reserveform.innerHTML = '';
                         reservationInfo(data, loginFlag);
                     })
-    
-                reserveform.innerHTML = '';
-                reservationInfo(memberReservationCheckResponse, loginFlag);
+
+                // reserveform.innerHTML = '';
+                // reservationInfo(memberReservationCheckResponse, loginFlag);
             }
         }
         else if (elem.classList.contains('inquiry')) {
@@ -83,7 +81,7 @@ if(contactMenu){
     
     function menuHandler(e) {	// EventListener로 실행이 되면 자동으로 첫번째 매개변수 자리에는 이벤트라는 특별한 객체 들어옴
         const targetElem = e.target;	// 클릭한 거
-        console.log(targetElem);
+
     
     
     
@@ -105,7 +103,6 @@ if(contactMenu){
     // 드롭다운 함수
     function onClickSelect(e) { // 눌렀을 때 활성화되있으면 비활성화 활성화 안되있으면 활성화
         const isActive = e.currentTarget.classList.contains("active");
-        console.log("isActive : ",isActive)
         if (isActive) {
             e.currentTarget.classList.remove('active');
         } else {
@@ -157,7 +154,7 @@ if(contactMenu){
     
     function createReservation(objArr, loginFlag) {
     
-        contactName.innerHTML = '-예 약-';
+        contactName.innerHTML = '예 약';
         // 프로그램 드롭다운 
         const select = document.createElement('div');
         select.classList.add('select');
@@ -219,7 +216,6 @@ if(contactMenu){
     
     
             function regCheck(flag) {
-                console.log(regHeadCount.test(numOfUser.value));
                 // 비회원
                 if (text.textContent == '진행 중인 프로그램') {
                     errorMessage.innerHTML = '프로그램을 선택해주세요';
@@ -267,7 +263,6 @@ if(contactMenu){
                     }
                 }
                 if (!regHeadCount.test(numOfUser.value)) {
-                    console.log('!!!!!!!!!!!!!!!!!');
                     errorMessage.innerHTML = '숫자를 입력해주세요';
                     errorMessage.style.display = 'block';
                     return false;
@@ -377,7 +372,7 @@ if(contactMenu){
     
     function inquire(loginFlag) {
     
-        contactName.innerHTML = '-문 의-';
+        contactName.innerHTML = '문 의';
     
         if (!loginFlag) {   // 로그인 안되어 있으면
             // 이름
@@ -554,7 +549,7 @@ if(contactMenu){
     
     function reservationCheck() { // 비회원 예약 폼
     
-        contactName.innerHTML = '-예약 확인-';
+        contactName.innerHTML = '예약 확인';
     
         createInput(reserveform, "예약번호", "text", "예약번호를 입력하세요", "reservationNumber", true);
         const reservationNumber = document.querySelector('.reservationNumber');
@@ -622,7 +617,7 @@ if(contactMenu){
     
     function reservationInfo(response, loginFlag) { // 예약정보
     
-        contactName.innerHTML = '-예약 정보-';
+        contactName.innerHTML = '예약 정보';
     
     
         if (response.status == 500) {   // 회원 에러처리
@@ -729,7 +724,7 @@ if(contactMenu){
     
     
     function completeinquiry() {
-        contactName.innerHTML = '-문의 완료-';
+        contactName.innerHTML = '문의 완료';
     
         // 버튼
         const submit = document.createElement('button');

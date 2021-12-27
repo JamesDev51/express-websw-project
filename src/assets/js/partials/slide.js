@@ -26,13 +26,7 @@ let curPos = 0;
 
             const noticeImg = document.createElement('div');
             noticeImg.classList.add('notice-img');
-            console.log("key : "+key)
-            console.log("obj : "+obj[key])
-            if(obj[key].photoUrls.length===0){
-                noticeImg.style.backgroundImage = "url(" + "https://pajuhakdang-project.s3.ap-northeast-2.amazonaws.com/Photo/pajuhakdang.PNG"+ ")";
-            }else{
-                noticeImg.style.backgroundImage = "url(" + obj[key].photoUrls[0]+ ")";
-            }
+            noticeImg.style.backgroundImage = "url(" + obj[key].photoUrls[0]+ ")";
             const noticeDesc = document.createElement('div');
             noticeDesc.classList.add('notice-desc');
             
@@ -52,12 +46,9 @@ let curPos = 0;
             noticeList.appendChild(notice);
 
             notice.addEventListener('click', (e) => {
-
-                console.log(obj[e.currentTarget.dataset.key].title);
                 localStorage.setItem('programData', JSON.stringify(obj[e.currentTarget.dataset.key]));
                 location.href = `/programs/${obj[key]._id}`;
             });
-
         }
         noticeArr = document.querySelectorAll(".notice");  // 하나 하나의 노티스들의 배열
         noticeCount = Math.ceil(noticeArr.length / 4);   // 슬라이드 길이
@@ -125,24 +116,19 @@ let curPos = 0;
 
     function touch_start(event) {
         start_x = event.touches[0].pageX
-        console.log("누름");
     }
 
     function touch_end(event) {
         end_x = event.changedTouches[0].pageX;
-        console.log("땜");
         if (start_x > end_x) {
-            console.log("next");
             next();
         } else {
-            console.log("prev");
             prev();
         }
     }
 
     const programInputHidden = document.getElementById("programData")
     const programData=JSON.parse(programInputHidden.value)
-    console.log("programData",programData)
     createProgram(programData)
     initfunction();
     noticeList.addEventListener('touchstart', touch_start);

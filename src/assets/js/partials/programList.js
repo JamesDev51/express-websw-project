@@ -3,7 +3,6 @@ const programListHidden = document.getElementById("programListHidden")
 if(programListHidden){
     const programInputHidden = document.getElementById("programData")
     const programData=JSON.parse(programInputHidden.value)
-    console.log("programData : ",programData)
     
     const body = document.querySelector('.main');
     const totalBtn = document.querySelector('.total');
@@ -15,6 +14,7 @@ if(programListHidden){
     programListContainer.appendChild(titles[0]);
     programListContainer.appendChild(titles[1]);
     programListContainer.appendChild(titles[2]);
+    programListContainer.appendChild(titles[3]);
     let titleHeight = parseInt(getStyle(titles[0], "height", "height"));
     
     function createProgramList(obj) {
@@ -23,22 +23,32 @@ if(programListHidden){
         let tripKey = 0;
         let tripRow = 0;
         let tripCol = 0;
+    
         let activityKey = 0;
         let activityRow = 0;
         let activityCol = 0;
+    
         let trainingKey = 0;
         let trainingRow = 0;
         let trainingCol = 0;
+        
+        let noticeKey = 0;
+        let noticeRow = 0;
+        let noticeCol = 0;
+    
         let tripLen = 0;
         let activityLen = 0;
         let trainingLen = 0;
+        let noticeLen = 0;
+    
         let totalTripRow = 0;
         let totalActivityRow = 0;
         let totaltrainingRow = 0;
-        
+        let totalNoticeRow = 0;
     
         for (let i = 0; i < obj.length; i++) {
-            if (obj[i].category == 'trip') tripLen++;
+            if (obj[i].category == 'notice') noticeLen++;
+            else if (obj[i].category == 'trip') tripLen++;
             else if (obj[i].category == 'activity') activityLen++;
             else if (obj[i].category == 'training') trainingLen++;
         }
@@ -48,15 +58,9 @@ if(programListHidden){
             program.classList.add('program');
             program.dataset.key = key;
             //console.log(key);
-            const programImg = document.createElement('img');
-            programImg.classList.add('programImgg');
-            if(obj[key].photoUrls.length===0){
-                programImg.style.content = `url('https://pajuhakdang-project.s3.ap-northeast-2.amazonaws.com/Photo/pajuhakdang.PNG')`
-            }else{
-                programImg.style.content = "url(" + obj[key].photoUrls[0] + ")";
-            }
-
-
+            const programImg = document.createElement('div');
+            programImg.classList.add('programImg');
+            programImg.style.backgroundImage = "url(" + obj[key].photoUrls[0] + ")";
     
     
     
@@ -71,8 +75,9 @@ if(programListHidden){
     
             program.addEventListener('click', (e) => {
     
-                console.log(obj[e.currentTarget.dataset.key].title);
+
                 localStorage.setItem('programData', JSON.stringify(obj[e.currentTarget.dataset.key]));
+                //location.href = 'programDesc.html';
                 location.href = `/programs/${obj[key]._id}`;
             });
     
@@ -83,6 +88,7 @@ if(programListHidden){
             totalTripRow = Math.ceil(tripLen / rowNum);    // 여행 전체 행
             totalActivityRow = Math.ceil(activityLen / rowNum);    // activity 전체 행
             totaltrainingRow = Math.ceil(trainingLen / rowNum);    // training 전체 행
+            totalNoticeRow = Math.ceil(noticeLen / rowNum);    // training 전체 행
     
             //console.log(rowNum);
             let pastRow = currentRow;   // 이전 행
@@ -93,7 +99,6 @@ if(programListHidden){
                 currentCol = Math.floor(key % rowNum);
                 program.dataset.totalX = imgWidth * currentCol + (20 * currentCol);
                 program.dataset.totalY = imgHeight * currentRow + (20 * currentRow);
-                console.log(imgHeight);
     
                 program.style.transform = `translate( ${program.dataset.totalX}px, ${program.dataset.totalY}px)`;
                 //console.log(Math.floor(currentCol));
@@ -106,6 +111,32 @@ if(programListHidden){
             }
     
             // 카테고리별 분류/////////////////////
+            if (obj[key].category == 'notice') {
+                program.dataset.category = 'notice';
+                
+                let pastNoticeRow = noticeRow; // 이전 여행 행
+                noticeRow = Math.floor(noticeKey / rowNum); // 여행 카테고리 현재 행
+    
+                if (pastNoticeRow == noticeRow) { // 이전 행하고 현재 행하고 같으면 같은 행이라는 이야기
+                    noticeCol = Math.floor(noticeKey % rowNum);
+                    program.dataset.noticeX = imgWidth * noticeCol + (20 * noticeCol);
+                    program.dataset.noticeY = imgHeight * noticeRow + (20 * noticeRow);
+                    //console.log(imgWidth * tripCol + (20 * tripCol), imgHeight * tripRow + (20 * tripRow));
+                    if (noticeKey == 0) {
+                        titles[0].dataset.noticeY = program.dataset.noticeY;
+                        //console.log(imgWidth * tripCol + (20 * tripCol), imgHeight * tripRow + (20 * tripRow));
+                    }
+                    //program.style.transform = `translate( ${program.dataset.tripX}px, ${program.dataset.tripY}px)`;
+                    //console.log(Math.floor(currentCol));
+                }
+                else {
+                    noticeCol = 0; 
+                    program.dataset.noticeX = imgWidth * noticeCol;
+                    program.dataset.noticeY = imgHeight * noticeRow + (20 * noticeRow);
+                    //program.style.transform = `translate( ${program.dataset.tripX}px, ${program.dataset.tripY}px)`;
+                }
+                noticeKey++;
+            }
             if (obj[key].category == 'trip') {
                 program.dataset.category = 'trip';
                 
@@ -115,10 +146,10 @@ if(programListHidden){
                 if (pastTripRow == tripRow) { // 이전 행하고 현재 행하고 같으면 같은 행이라는 이야기
                     tripCol = Math.floor(tripKey % rowNum);
                     program.dataset.tripX = imgWidth * tripCol + (20 * tripCol);
-                    program.dataset.tripY = imgHeight * tripRow + (20 * tripRow);
+                    program.dataset.tripY = imgHeight * tripRow + (20 * tripRow) + imgHeight * totalNoticeRow + 100;
                     //console.log(imgWidth * tripCol + (20 * tripCol), imgHeight * tripRow + (20 * tripRow));
                     if (tripKey == 0) {
-                        titles[0].dataset.tripY = program.dataset.tripY;
+                        titles[1].dataset.tripY = program.dataset.tripY;
                         //console.log(imgWidth * tripCol + (20 * tripCol), imgHeight * tripRow + (20 * tripRow));
                     }
                     //program.style.transform = `translate( ${program.dataset.tripX}px, ${program.dataset.tripY}px)`;
@@ -127,7 +158,7 @@ if(programListHidden){
                 else {
                     tripCol = 0; 
                     program.dataset.tripX = imgWidth * tripCol;
-                    program.dataset.tripY = imgHeight * tripRow + (20 * tripRow);
+                    program.dataset.tripY = imgHeight * tripRow + (20 * tripRow) + imgHeight * totalNoticeRow + 100;
                     //program.style.transform = `translate( ${program.dataset.tripX}px, ${program.dataset.tripY}px)`;
                 }
                 tripKey++;
@@ -141,10 +172,10 @@ if(programListHidden){
                 if (pastActivityRow == activityRow) { // 이전 행하고 현재 행하고 같으면 같은 행이라는 이야기
                     activityCol = Math.floor(activityKey % rowNum);
                     program.dataset.activityX = imgWidth * activityCol + (20 * activityCol);
-                    program.dataset.activityY = imgHeight * activityRow + (20 * activityRow) + imgHeight * totalTripRow + 100;
+                    program.dataset.activityY = imgHeight * activityRow + (20 * activityRow) + imgHeight * totalNoticeRow + 100 + imgHeight * totalTripRow + 100;
         
                     if (activityKey == 0) {
-                        titles[1].dataset.activityY = program.dataset.activityY;
+                        titles[2].dataset.activityY = program.dataset.activityY;
                         //console.log(imgWidth * tripCol + (20 * tripCol), imgHeight * tripRow + (20 * tripRow));
                     }
                     //program.style.transform = `translate( ${program.dataset.activityX}px, ${program.dataset.activityY}px)`;
@@ -153,7 +184,7 @@ if(programListHidden){
                 else {
                     activityCol = 0; 
                     program.dataset.activityX = imgWidth * activityCol;
-                    program.dataset.activityY = imgHeight * activityRow + (20 * activityRow) + imgHeight * totalTripRow + 100;
+                    program.dataset.activityY = imgHeight * activityRow + (20 * activityRow) + imgHeight * totalNoticeRow + 100 + imgHeight * totalTripRow + 100;
                     //program.style.transform = `translate( ${program.dataset.activityX}px, ${program.dataset.activityY}px)`;
                 }
                 activityKey++;
@@ -167,10 +198,10 @@ if(programListHidden){
                 if (pastTrainingRow == trainingRow) { // 이전 행하고 현재 행하고 같으면 같은 행이라는 이야기
                     trainingCol = Math.floor(trainingKey % rowNum);
                     program.dataset.trainingX = imgWidth * trainingCol + (20 * trainingCol);
-                    program.dataset.trainingY = imgHeight * trainingRow + (20 * trainingRow) + imgHeight * totalTripRow + 100 + imgHeight * totalActivityRow + 100;
+                    program.dataset.trainingY = imgHeight * trainingRow + (20 * trainingRow) + imgHeight * totalNoticeRow + 100 + imgHeight * totalTripRow + 100 + imgHeight * totalActivityRow + 100;
         
                     if (trainingKey == 0) {
-                        titles[2].dataset.trainingY = program.dataset.trainingY;
+                        titles[3].dataset.trainingY = program.dataset.trainingY;
                         //console.log(imgWidth * tripCol + (20 * tripCol), imgHeight * tripRow + (20 * tripRow));
                     }
                     //program.style.transform = `translate( ${program.dataset.tripX}px, ${program.dataset.tripY}px)`;
@@ -179,7 +210,7 @@ if(programListHidden){
                 else {
                     trainingCol = 0; 
                     program.dataset.trainingX = imgWidth * trainingCol;
-                    program.dataset.trainingY = imgHeight * trainingRow + (20 * trainingRow) + imgHeight * totalTripRow + 100 + imgHeight * totalActivityRow + 100;
+                    program.dataset.trainingY = imgHeight * trainingRow + (20 * trainingRow) + imgHeight * totalNoticeRow + 100 + imgHeight * totalTripRow + 100 + imgHeight * totalActivityRow + 100;
                     //program.style.transform = `translate( ${program.dataset.trainingX}px, ${program.dataset.trainingY}px)`;
                 }
                 trainingKey++;
@@ -194,6 +225,7 @@ if(programListHidden){
         titles[0].style.opacity = '0';
         titles[1].style.opacity = '0';
         titles[2].style.opacity = '0';
+        titles[3].style.opacity = '0';
         totalBtn.classList.add('active');
         categoryBtn.classList.remove('active');
     
@@ -216,14 +248,19 @@ if(programListHidden){
         titles[0].style.opacity = '1';
         titles[1].style.opacity = '1';
         titles[2].style.opacity = '1';
-        
-        titles[0].style.transform = `translate(0px, ${titles[0].dataset.tripY - titleHeight - 10}px)`;
-        titles[1].style.transform = `translate(0px, ${titles[1].dataset.activityY - titleHeight - 10}px)`;
-        titles[2].style.transform = `translate(0px, ${titles[2].dataset.trainingY - titleHeight - 10}px)`;
+        titles[3].style.opacity = '1';
     
-        console.log(titles[1]);
+        titles[0].style.transform = `translate(0px, ${titles[0].dataset.noticeY - titleHeight - 10}px)`;
+        titles[1].style.transform = `translate(0px, ${titles[1].dataset.tripY - titleHeight - 10}px)`;
+        titles[2].style.transform = `translate(0px, ${titles[2].dataset.activityY - titleHeight - 10}px)`;
+        titles[3].style.transform = `translate(0px, ${titles[3].dataset.trainingY - titleHeight - 10}px)`;
+        
+    
         for(let i = 0; i < programs.length; i++) {
-            if (programs[i].dataset.category == 'trip') {
+            if (programs[i].dataset.category == 'notice') {
+                programs[i].style.transform = `translate( ${programs[i].dataset.noticeX}px, ${programs[i].dataset.noticeY}px)`;
+            }
+            else if (programs[i].dataset.category == 'trip') {
                 programs[i].style.transform = `translate( ${programs[i].dataset.tripX}px, ${programs[i].dataset.tripY}px)`;
             }
             else if (programs[i].dataset.category == 'activity') {

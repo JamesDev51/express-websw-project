@@ -40,7 +40,6 @@ function handleLoginBtnClick(){ //로그인 버튼 눌렀을 때
     dataType:"json",
     body: JSON.stringify(data)
     }).then((response) => {
-        console.log(response) 
         location.href=response.url
 
     })  
