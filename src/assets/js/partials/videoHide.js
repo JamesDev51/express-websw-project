@@ -5,7 +5,7 @@ const hideContainer = document.querySelector(".hide-container");
 if(hideContainer){
     hideContainer.style.top = parseInt(getStyle(nav, "height", "height")) + parseInt(getStyle(video, "height", "height")) + 'px';
     
-    
+    console.log(nav)
     function getStyle(elem, cssprop, cssprop2) {
     
         //IE
