@@ -63,28 +63,25 @@ if(uniqueHome){
         programTop = document.querySelector(".hide-container").offsetTop;
         aboutTop = programTop + y;
         contactTop = aboutTop + window.innerHeight * 12 + x;
-        locationTop = contactTop + 
-        console.log(programTop);
     
     }
     
     programBtn.addEventListener('click', () => {
-        console.log(programTop);
         //console.log(document.querySelector(".hide-container").offsetTop);
         window.scrollTo({ top: programTop - menuHeight, behavior: 'smooth' });
     });
     
     aboutBtn.addEventListener('click', () => {
-        console.log(aboutTop);
+        // console.log(aboutTop);
         window.scrollTo({ top: aboutTop + menuHeight * 7, behavior: 'smooth' });
     });
     
     contactBtn.addEventListener('click', () => {
-        console.log(contactTop);
+        // console.log(contactTop);
         window.scrollTo({ top: contactTop, behavior: 'smooth' });
     });
     locationBtn.addEventListener('click', () => {
-        console.log(locationBtn);
+        // console.log(locationBtn);
         window.scrollTo({ top: contactTop + contactMenuListHeight + contactHeight, behavior: 'smooth' });
     });
     

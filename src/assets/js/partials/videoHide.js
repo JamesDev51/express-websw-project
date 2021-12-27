@@ -4,8 +4,8 @@ const hideContainer = document.querySelector(".hide-container");
 
 if(hideContainer){
     hideContainer.style.top = parseInt(getStyle(video, "height", "height")) + 'px';
-    console.log(nav)
-    console.log("parseInt(getStyle : " + parseInt(getStyle(nav, "height", "height")))
+    console.log(nav+" : resize")
+    console.log("parseInt(getStyle : "+ parseInt(getStyle(nav, "height", "height")) )
     function getStyle(elem, cssprop, cssprop2) {
     
         //IE
@@ -23,6 +23,6 @@ if(hideContainer){
     }
     
     window.addEventListener('resize', function() {
-        hideContainer.style.top =  + parseInt(getStyle(video, "height", "height")) + 'px';
+        hideContainer.style.top = parseInt(getStyle(video, "height", "height")) + 'px';
     });
 }

@@ -121,7 +121,7 @@ if(video){
         }
     
         window.addEventListener('resize', function () {
-            hideContainer.style.top = parseInt(getStyle(nav, "height", "height")) + parseInt(getStyle(video, "height", "height")) + 'px';
+            hideContainer.style.top =  parseInt(getStyle(video, "height", "height")) + 'px';
         });
     
     
