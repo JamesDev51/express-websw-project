@@ -9,6 +9,10 @@ nav.nav
             a.nav-menu(href='/signup') Signup
         else
             a(href='/logout') Logout
+            if user.isAdmin
+                a(href='/programs/upload' style="color: blue;") Upload
+                a(href='/admin/dash' style="color: blue;") Admin
+
         //- a(href='#') MyPage
         //- if user.admin
             

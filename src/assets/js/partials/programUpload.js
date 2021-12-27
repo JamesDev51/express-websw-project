@@ -1,6 +1,6 @@
 const programUploadBtn= document.querySelector(".programUploadBtn")
 const uploadCategory = document.querySelector('.cat');
-const uploadTitle = document.querySelector('.title');
+const uploadTitle = document.querySelector('.programUploadTitle');
 const uploadContent = document.querySelector('.content');
 
 
