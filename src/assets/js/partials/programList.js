@@ -55,7 +55,7 @@ if(programListHidden){
     
     
             const programTitle = document.createElement('div');
-            programTitle.classList.add('programTitle');
+            programTitle.classList.add('programTitlee');
             programTitle.innerHTML = obj[key].title;
     
     
