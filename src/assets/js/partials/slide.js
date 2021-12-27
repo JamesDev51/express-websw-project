@@ -28,7 +28,11 @@ let curPos = 0;
             noticeImg.classList.add('notice-img');
             console.log("key : "+key)
             console.log("obj : "+obj[key])
-            noticeImg.style.backgroundImage = "url(" + obj[key].photoUrls[0]+ ")";
+            if(obj[key].photoUrls.length===0){
+                noticeImg.style.backgroundImage = "url(" + "https://pajuhakdang-project.s3.ap-northeast-2.amazonaws.com/Photo/pajuhakdang.PNG"+ ")";
+            }else{
+                noticeImg.style.backgroundImage = "url(" + obj[key].photoUrls[0]+ ")";
+            }
             const noticeDesc = document.createElement('div');
             noticeDesc.classList.add('notice-desc');
             

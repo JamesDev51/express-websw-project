@@ -21,7 +21,11 @@ if(programDetail){
         
         const programImg = document.createElement('div');
         programImg.classList.add('programImg');
-        programImg.style.backgroundImage = `url('${obj.photoUrls[0]}')`
+        if(obj.photoUrls.length===0){
+            programImg.style.backgroundImage = `url('https://pajuhakdang-project.s3.ap-northeast-2.amazonaws.com/Photo/pajuhakdang.PNG')`
+        }else{
+            programImg.style.backgroundImage = `url('${obj.photoUrls[0]}')`
+        }
         
         const programContent = document.createElement('div');
         programContent.classList.add('programContent');

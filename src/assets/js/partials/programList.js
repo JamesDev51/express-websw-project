@@ -50,7 +50,13 @@ if(programListHidden){
             //console.log(key);
             const programImg = document.createElement('img');
             programImg.classList.add('programImgg');
-            programImg.style.content = "url(" + obj[key].photoUrls[0] + ")";
+            if(obj[key].photoUrls.length===0){
+                programImg.style.content = `url('https://pajuhakdang-project.s3.ap-northeast-2.amazonaws.com/Photo/pajuhakdang.PNG')`
+            }else{
+                programImg.style.content = "url(" + obj[key].photoUrls[0] + ")";
+            }
+
+
     
     
     
