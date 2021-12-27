@@ -67,7 +67,7 @@ if(programListHidden){
     
                 console.log(obj[e.currentTarget.dataset.key].title);
                 localStorage.setItem('programData', JSON.stringify(obj[e.currentTarget.dataset.key]));
-                location.href = `programs/id가 들어갈 자리`;
+                location.href = `/programs/${obj[key]._id}`;
             });
     
             let imgWidth = parseInt(getStyle(program, "width", "width"));
