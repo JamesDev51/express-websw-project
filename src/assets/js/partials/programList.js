@@ -1,6 +1,7 @@
 //프로그램명 받아오기
-const programInputHidden = document.getElementById("programData")
-if(programInputHidden){
+const programListHidden = document.getElementById("programListHidden")
+if(programListHidden){
+    const programInputHidden = document.getElementById("programData")
     const programData=JSON.parse(programInputHidden.value)
     console.log("programData : ",programData)
     
@@ -48,7 +49,7 @@ if(programInputHidden){
             program.dataset.key = key;
             //console.log(key);
             const programImg = document.createElement('img');
-            programImg.classList.add('programImg');
+            programImg.classList.add('programImgg');
             programImg.style.content = "url(" + obj[key].photoUrls[0] + ")";
     
     
