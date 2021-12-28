@@ -13,7 +13,7 @@ if(reservationsInputHidden){
             
             const reservationInfo = document.createElement('div');
             reservationInfo.classList.add('reservationInfo');
-            reservationInfo.innerHTML = "성함: "+obj[key].name+"<br/>"+ "프로그램명: " + obj[key].program + "<br/>" + "이메일: " + obj[key].email + "<br/>" + "아이디: " + obj[key]._id + "<br/>" +  "전화번호: " + obj[key].phoneNumber + "<br/>" + "인원수: " + obj[key].peopleNum + "<br/>"+ "문의사항: " + obj[key].message;
+            reservationInfo.innerHTML = "성함: "+obj[key].name+"<br/>"+ "프로그램명: " + obj[key].program + "<br/>" + "이메일: " + obj[key].email + "<br/>" + "아이디: " + obj[key]._id + "<br/>" +  "전화번호: " + obj[key].phoneNumber + "<br/>" + "인원수: " + obj[key].peopleNum + "<br/>"+ "문의사항: " + obj[key].message+"<br/><br/>";
             reservation.appendChild(reservationInfo);
             reservationListContainer.appendChild(reservation);
             

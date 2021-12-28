@@ -61,9 +61,13 @@ if(contactMenu){
                 })
                     .then((response) => response.json())
                     .then((data) => {
+                        console.log(data)
                         reserveform.innerHTML = '';
                         reservationInfo(data, loginFlag);
                     })
+            //서버에서 받는 값
+
+
 
                 // reserveform.innerHTML = '';
                 // reservationInfo(memberReservationCheckResponse, loginFlag);
@@ -630,7 +634,7 @@ if(contactMenu){
             for (let i = 0; i < response.reservationData.length; i++) {
                 const infoDesc = document.createElement('div'); // 인포 설명
                 infoDesc.classList.add('info-desc');
-    
+                console.log("data : "+ response.reservationData[i])
                 createReservationElem(infoDesc, '프로그램', response.reservationData[i].program.title);
                 createReservationElem(infoDesc, '날짜', response.reservationData[i].program.date);
                 createReservationElem(infoDesc, '이름', response.reservationData[i].name);

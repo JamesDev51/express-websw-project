@@ -85,6 +85,7 @@ export const checkReservation = async(req,res)=>{
                 
                 reservationData.push(reservation)
             }
+            console.log("reservationData : "+ reservationData)
             res.send({reservationData,status:httpStatusCode.OK})
         }
         
